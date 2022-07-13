@@ -1,5 +1,22 @@
-# Load the Rails application.
-require_relative "application"
+# frozen_string_literal: true
 
-# Initialize the Rails application.
-Rails.application.initialize!
+# Load the Rails application.
+require_relative 'application'
+# BEGIN
+
+notify = lambda do |e|
+  Rollbar.with_config(use_async: false) do
+    Rollbar.error(e)
+  end
+rescue StandardError
+  Rails.logger.error 'Synchronous Rollbar notification failed.  Sending async to preserve info'
+  Rollbar.error(e)
+end
+
+begin
+  Rails.application.initialize!
+rescue Exception => e
+  notify.call(e)
+  raise
+end
+# END
