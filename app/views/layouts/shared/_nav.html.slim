@@ -1,13 +1,16 @@
 .container.mb-2
-  .py-2.border-bottom
-    .navbar.navbar-expand-md.navbar-light
-      #navbarToggler.collapse.navbar-collapse
-        ul.nav.nav-pills.flex-grow-1.navbar-nav
-          - if user_signed_in?
-            li.nav-item.me-2
-              = link_to 'Разлогиниться', destroy_user_session_url, method: :delete,  class: 'nav-link link-dark'
-          - else
-            li.nav-item.me-2
-              = link_to 'Войти', new_user_session_url, class: 'nav-link link-dark'
-            li.nav-item.me-2
-              = link_to 'Регистрация', new_user_registration_url, class: 'nav-link link-dark'
+  .d-flex.flex-wrap.align-items-center.py-2.border-bottom
+    .mr-auto.navbar.navbar-expand-md.navbar-light
+      a.navbar-brand.me-md-4
+        strong Logo
+    ul.nav.nav-pills
+      - if user_signed_in?
+        li.nav-item.me-2
+          = link_to 'Добавить статью', destroy_user_session_url, class: 'nav-link link-dark'
+        li.nav-item.me-2
+          = link_to 'Выйти', destroy_user_session_url, method: :delete,  class: 'nav-link link-dark'
+      - else
+        li.nav-item.me-2
+          = link_to 'Войти', new_user_session_url, class: 'nav-link link-dark'
+        li.nav-item.me-2
+          = link_to 'Регистрация', new_user_registration_url, class: 'nav-link link-dark'

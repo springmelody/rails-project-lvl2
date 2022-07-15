@@ -60,6 +60,7 @@ group :production do
 end
 
 gem 'devise'
+gem 'devise-bootstrap-views', '~> 1.0'
 gem 'rollbar'
 gem 'slim-rails'
 

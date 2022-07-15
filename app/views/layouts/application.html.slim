@@ -8,11 +8,13 @@ html
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  body
+    link[rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"]
+  body.d-flex.flex-column.h-100
     = render 'layouts/shared/nav'
 
     = render 'layouts/shared/flash'
-    
-    h2
-      = yield :title
-    = yield
+
+    .container.my-4c
+      h1
+        = yield :title
+      = yield
