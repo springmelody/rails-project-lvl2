@@ -62,6 +62,7 @@ end
 gem 'devise'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'rollbar'
+gem 'simple_form'
 gem 'slim-rails'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
